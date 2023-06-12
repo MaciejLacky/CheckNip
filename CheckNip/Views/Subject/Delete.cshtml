@@ -1,0 +1,39 @@
+﻿@model CheckNip.DB.Models.SubjectDb
+
+@{
+    ViewData["Title"] = "Usuń";
+}
+
+<h1>Usuwanie</h1>
+
+<h3>Czy chcesz usunąć podmiot z bazy?</h3>
+<div>
+    <h4>@Html.DisplayFor(model => model.Nip)</h4>
+    <hr />
+    <dl class="row">     
+        <dt class="col-sm-2">
+            @Html.DisplayName("Status vat")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StatusVat)
+        </dd>       
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Nazwa podmiotu")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>      
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Adres")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ResidenceAddress)
+        </dd>      
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Wstecz</a>
+    </form>
+</div>

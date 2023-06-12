@@ -1,0 +1,153 @@
+﻿@model CheckNip.DB.Models.SubjectDb
+
+@{
+    ViewData["Title"] = "Dane podmotu";
+    
+}
+
+<h1>Dane podmotu</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("REGON")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Regon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Data przywrócenia jako podatnika VAT")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RestorationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Adres rejestracyjny")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WorkingAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Podmiot posiada maski kont wirtualnych")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HasVirtualAccounts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Status podatnika VAT")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StatusVat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("numer KRS jeżeli został nadany")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Krs)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Podstawa prawna przywrócenia jako podatnika VAT")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RestorationBasis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Podstawa prawna odmowy rejestracji")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationDenialBasis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("NIP")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nip)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Data wykreślenia odmowy rejestracji jako podatnika VAT")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RemovalDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Firma (nazwa) lub imię i nazwisko")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Data rejestracji jako podatnika VAT")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationLegalDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Podstawa prawna wykreślenia odmowy rejestracji jako podatnika VAT")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RemovalBasis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("PESEL")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pesel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Adres siedziby działalności gospodarczej")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ResidenceAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Data odmowy rejestracji jako podatnika VAT format")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationDenialDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Numery kont bankowych")
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.AccountNumbers != null)
+                @foreach (var account in Model.AccountNumbers)
+                {
+                    @account.Value <br />
+                }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Imiona i nazwiska osób wchodzących w skład organu uprawnionego do reprezentowania podmiotu")
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Representatives != null)
+                @foreach (var representative in Model.Representatives)
+                {
+                    @representative.FirstName <br />
+                    @representative.LastName <br />
+                    @representative.Nip <br />
+                    @representative.pesel <br />
+                    @representative.CompanyName <br />
+                }
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Imiona i nazwiska lub firmę (nazwa) wspólnika")
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Partners != null)
+                @foreach (var partner in Model.Partners)
+                {
+                    @partner.FirstName <br />
+                    @partner.LastName <br />
+                    @partner.Nip <br />
+                    @partner.pesel <br />
+                    @partner.CompanyName <br />
+                }
+        </dd>
+    </dl>
+</div>
+<div>   
+    <a asp-action="Index">Wstecz</a>
+</div>

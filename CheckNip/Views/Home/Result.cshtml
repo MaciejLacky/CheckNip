@@ -1,0 +1,155 @@
+﻿@model CheckNip.Models.ResultRoot
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h1>Dane podmiotu @Model.Result.Subject.Nip</h1>
+
+<div>
+    @if (Model != null)
+    {
+        <h3>Nazwa firmy: @Model.Result.Subject.Name</h3>
+        <h4>Adres: @Model.Result.Subject.ResidenceAddress</h4>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(Model => Model.Result.Subject.Regon)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.Regon)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RestorationDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RestorationDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.WorkingAddress)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.WorkingAddress)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.HasVirtualAccounts)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.HasVirtualAccounts)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.StatusVat)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.StatusVat)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.Krs)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.Krs)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RestorationBasis)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RestorationBasis)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RegistrationDenialBasis)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RegistrationDenialBasis)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.Nip)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.Nip)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RemovalDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RemovalDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RegistrationLegalDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RegistrationLegalDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RemovalBasis)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RemovalBasis)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.Pesel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.Pesel)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.ResidenceAddress)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.ResidenceAddress)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.RegistrationDenialDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => Model.Result.Subject.RegistrationDenialDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.AccountNumbers)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Result.Subject.AccountNumbers != null)
+                @foreach (var account in Model.Result.Subject.AccountNumbers)
+                {
+                    @account <br/>
+                }
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.Representatives)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Result.Subject.Representatives != null)
+                    @foreach (var representative in Model.Result.Subject.Representatives)
+                    {
+                        @representative.FirstName <br/>
+                        @representative.LastName <br />
+                        @representative.Nip <br />
+                        @representative.pesel <br />
+                        @representative.CompanyName <br />
+                    }
+                
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => Model.Result.Subject.Partners)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.Result.Subject.Partners != null)
+                    @foreach (var partner in Model.Result.Subject.Partners)
+                    {
+                        @partner.FirstName <br />
+                        @partner.LastName <br />
+                        @partner.Nip <br />
+                        @partner.pesel <br />
+                        @partner.CompanyName <br />
+                    }               
+            </dd>
+        </dl>
+    }
+</div>
+<div>    
+    <a asp-action="Index">Wstecz</a>
+</div>
