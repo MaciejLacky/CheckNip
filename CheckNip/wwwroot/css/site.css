@@ -16,3 +16,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+}
+
+    input[type=text]:focus {
+        width: 30%;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+.greyNav.active a,
+.greyNav .active a:hover {
+    background-color: gray;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: gray;
+}

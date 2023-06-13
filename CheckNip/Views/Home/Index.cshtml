@@ -7,12 +7,19 @@
     {
         <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
     }
-
-    <form asp-controller="Home" asp-action="Search" method="post">
-        <div class="form-group">
-            <label for="nip">Wprowadź numer NIP:</label>
-            <input type="text" id="nip" name="nip" class="form-control" required />
+    <div class="container mt-3">       
+        <div class="mt-4 p-5 bg-light text-black rounded">
+            <h1>Pobierz dane podmiotu</h1>           
+            <p>Aplikacja umożliwia pobranie danych kontrahenta z ogólnej bazy danych na podstawie numeru NIP</p>           
+            <form asp-controller="Home" asp-action="Search" method="post">               
+                <div class="form-group">
+                    <input type="text" id="nip" name="nip" class="form-control center-block" placeholder="Wprowadź nip" required />
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-outline-dark">Szukaj</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Szukaj</button>
-    </form>
+    </div>
+
+   
 </div>

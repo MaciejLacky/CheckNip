@@ -4,46 +4,50 @@
     ViewData["Title"] = "Sprawdzone podmioty";
 }
 
-<h1>Sprawdzone podmioty</h1>
+<div class="container mt-3">
+    <h2>Sprawdzone podmioty</h2>
+    <table class="table table-bordered">
+        <thead class="bg-light" >
+            <tr>
+                <th>
+                    @Html.DisplayName("Status vat")
+                </th>
+                <th>
+                    @Html.DisplayName("Numer NIP")
+                </th>
+                <th>
+                    @Html.DisplayName("Nazwa podmiotu")
+                </th>
+                <th>
+                    @Html.DisplayName("Data rejestracji")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StatusVat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nip)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegistrationLegalDate)
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-dark" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>          
-            <th>
-                @Html.DisplayName("Status vat")
-            </th>         
-            <th>
-                @Html.DisplayName("Numer NIP")
-            </th>        
-            <th>
-                @Html.DisplayName("Nazwa podmiotu")
-            </th>
-            <th>
-                @Html.DisplayName("Data rejestracji")
-            </th>          
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>         
-            <td>
-                @Html.DisplayFor(modelItem => item.StatusVat)
-            </td>        
-            <td>
-                @Html.DisplayFor(modelItem => item.Nip)
-            </td>          
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegistrationLegalDate)
-            </td>          
-            <td>               
-                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
