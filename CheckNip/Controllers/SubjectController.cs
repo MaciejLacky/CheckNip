@@ -20,14 +20,12 @@ namespace CheckNip.Controllers
             _context = context;
         }
 
-        // GET: SubjectDbs
         public async Task<IActionResult> Index()
         {
             var subjects = _context.Subjects.ToList();
             return View(subjects);
         }
 
-        // GET: SubjectDbs/Details/5
         public async Task<IActionResult> Details(int? id)
         {            
             if (id == null || _context.Subjects == null)
@@ -45,7 +43,6 @@ namespace CheckNip.Controllers
             return View(subjectDb);
         }
 
-          
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Subjects == null)
@@ -69,7 +66,7 @@ namespace CheckNip.Controllers
         {
             if (_context.Subjects == null)
             {
-                return Problem("Entity set 'CheckNipContext.Subjects'  is null.");
+                return Problem("Błąd przy usuwaniu danych, nie pobrano danych do usunięcia.");
             }
             var subjectDb = await _context.Subjects.FindAsync(id);
             if (subjectDb != null)

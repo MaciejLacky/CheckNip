@@ -13,10 +13,10 @@
             <p>Aplikacja umożliwia pobranie danych kontrahenta z ogólnej bazy danych na podstawie numeru NIP</p>           
             <form asp-controller="Home" asp-action="Search" method="post">               
                 <div class="form-group">
-                    <input type="text" id="nip" name="nip" class="form-control center-block" placeholder="Wprowadź nip" required />
+                    <input type="text" onkeypress='validate(event)' id="nip" name="nip" class="form-control center-block" placeholder="Wprowadź nip" required />
                 </div>
                 <br/>
-                <button type="submit" class="btn btn-outline-dark">Szukaj</button>
+                <button type="submit" class="btn btn-lg btn-outline-dark">Szukaj</button>
             </form>
         </div>
     </div>

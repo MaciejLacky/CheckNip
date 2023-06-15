@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net;
+using CheckNip.MockData;
 
 namespace CheckNip.Controllers
 {
@@ -37,14 +38,14 @@ namespace CheckNip.Controllers
             {
                 try
                 {
-                    //string json = await client.DownloadStringTaskAsync(apiUrl);
-                    string json = "{\r\n  \"result\" : {\r\n    \"subject\" : {\r\n      \"authorizedClerks\" : [ ],\r\n      \"regon\" : \"regon\",\r\n      \"restorationDate\" : \"2019-02-21\",\r\n      \"workingAddress\" : \"ul/ Prosta 49 00-838 Warszawa\",\r\n      \"hasVirtualAccounts\" : true,\r\n      \"statusVat\" : \"Zwolniony\",\r\n      \"krs\" : \"0000636771\",\r\n      \"restorationBasis\" : \"Ustawa o podatku od towarów i usług art. 96\",\r\n      \"accountNumbers\" : [ \"90249000050247256316596736\", \"90249000050247256316596736\" ],\r\n      \"registrationDenialBasis\" : \"Ustawa o podatku od towarów i usług art. 96\",\r\n      \"nip\" : \"1111111111\",\r\n      \"removalDate\" : \"2019-02-21\",\r\n      \"partners\" : [ ],\r\n      \"name\" : \"ABC Jan Nowak\",\r\n      \"registrationLegalDate\" : \"2018-02-21\",\r\n      \"removalBasis\" : \"Ustawa o podatku od towarów i usług Art. 97\",\r\n      \"pesel\" : null,\r\n      \"representatives\" : [ {\r\n        \"firstName\" : \"Jan\",\r\n        \"lastName\" : \"Nowak\",\r\n        \"nip\" : \"1111111111\",\r\n        \"companyName\" : \"Nazwa firmy\"\r\n      }, {\r\n        \"firstName\" : \"Jan\",\r\n        \"lastName\" : \"Nowak\",\r\n        \"nip\" : \"1111111111\",\r\n        \"companyName\" : \"Nazwa firmyyyy\"\r\n      } ],\r\n      \"residenceAddress\" : \"ul/ Chmielna 85/87 00-805 Warszawa\",\r\n      \"registrationDenialDate\" : \"2019-02-21\"\r\n    },\r\n    \"requestDateTime\": \"19-11-2019 14:58:49\",\r\n    \"requestId\" : \"d2n10-84df1a1\"\r\n  }\r\n}";
+                    string json = await client.DownloadStringTaskAsync(apiUrl);
+                    //string json = Data.jsonResult;//dla testow
 
                     _resultRoot = JsonConvert.DeserializeObject<ResultRoot>(json);                  
                 }
                 catch (WebException ex)
                 {
-                    ViewBag.ErrorMessage = $"Wystąpił błąd podczas pobierania danych. {ex.Response}";
+                    ViewBag.ErrorMessage = $"Wystąpił błąd podczas pobierania danych. Sprawdź poprawność numeru NIP.";
                     return View("Index");
                 }
                 try
